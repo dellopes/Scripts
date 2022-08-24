@@ -1,4 +1,4 @@
-#Definir alteracao de senha no proximo logon
+#Definir alteracao de senha no proximo logon de logins com base no arquivo usuarios.csv
 Import-Module ActiveDirectory
 
 Import-Csv "C:\Scripts\usuarios.csv" | 
