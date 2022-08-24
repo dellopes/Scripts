@@ -1,2 +1,2 @@
 # Scripts
-Comandos e Scripts com focados em ambiente VMware...
+Comandos e Scripts com focados em ambiente VMware.
