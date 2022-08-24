@@ -8,14 +8,14 @@ Start-Transcript -Path "\\fileserver\Auditoria_AD\Bloqueio_Logins\Logs\Bloqueio_
 #Importacao do Modulo Active Directory
 Import-Module ActiveDirectory
 #Criacao do arquivo de logins para bloqueio
-New-Item -Path "\\fileserver\Auditoria_AD\Demitidos_Sede\Bloqueio_SIAM_$CHAMADO.csv" -ItemType File
-    Set-Content -Path "\\fileserver\Auditoria_AD\Demitidos_Sede\Bloqueio_SIAM_$CHAMADO.csv" -Value 'SamAccountname
+New-Item -Path "\\fileserver\Auditoria_AD\Desligamentos\Bloqueio_SIAM_$CHAMADO.csv" -ItemType File
+    Set-Content -Path "\\fileserver\Auditoria_AD\Desligamentos\Bloqueio_SIAM_$CHAMADO.csv" -Value 'SamAccountname
 login001
 login002
 login003
 login004'
 #Comando para importar a lista de usuarios a serem bloqueados Gente Gestao
- Import-Csv "\\fileserver\Auditoria_AD\Demitidos_Sede\Bloqueio_SIAM_$CHAMADO.csv" | ForEach-Object {
+ Import-Csv "\\fileserver\Auditoria_AD\Desligamentos\Bloqueio_SIAM_$CHAMADO.csv" | ForEach-Object {
     $SamAccountName = $_."SamAccountName"
         Get-ADUser -Identity $SamAccountName | Disable-ADAccount
         Set-ADUser -Identity $SamAccountName -Replace @{"chamadosiamD"="$CHAMADO"}
@@ -45,7 +45,7 @@ write-host "`n"
 write-host "`n"
 Start-Sleep -Seconds 3
 Clear-Host
-Import-Csv "\\fileserver\Auditoria_AD\Demitidos_Sede\Bloqueio_SIAM_$CHAMADO.csv" | ForEach-Object {
+Import-Csv "\\fileserver\Auditoria_AD\Desligamentos\Bloqueio_SIAM_$CHAMADO.csv" | ForEach-Object {
     $SamAccountName = $_."SamAccountName"
         Get-ADUser -Identity $SamAccountName -Properties * |Select-Object -Property name, samaccountname, enabled, employeetype, chamadosiamD
             } |Format-Table
