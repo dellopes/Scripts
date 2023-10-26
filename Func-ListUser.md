@@ -1,5 +1,5 @@
-# Funcao criada para listar usuarios de forma simples, trazendo apenas as informacoes de login e diretorio shell
-### Adicionado na primeira linha do aqruivo ~/.zshrc
+### Funcao criada para listar usuarios de forma simples, trazendo apenas as informacoes de login e diretorio shell
+##### Adicionado na primeira linha do aqruivo ~/.zshrc
 
 ```
 listusr() {
